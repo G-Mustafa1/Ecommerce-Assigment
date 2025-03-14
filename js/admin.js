@@ -1,5 +1,5 @@
 import { db, collection, addDoc, getDocs, deleteDoc, doc } from "./firebase-Config.js";
-import { auth, signOut } from "./firebase-Config.js";
+import { auth, signOut, onAuthStateChanged } from "./firebase-Config.js";
 
 const mein_card = document.getElementById('mein-card');
 const card = document.createElement('div');
@@ -104,6 +104,18 @@ card.addEventListener('click', async (e) => {
    }
 
 })
+
+onAuthStateChanged(auth, (user) => {
+   if (user) {
+      console.log("User logged in:", user.email);
+   } else {
+      console.log("User logged out");
+      if (!window.location.href.includes("./login.html")) {
+         window.location.href = "./login.html";
+      }
+   }
+});
+
 
 const logoutBtn = document.getElementById("logoutBtn")
 logoutBtn.addEventListener("click", () => {
