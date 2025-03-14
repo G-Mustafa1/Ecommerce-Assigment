@@ -1,0 +1,149 @@
+.navbar {
+   margin-bottom: 10px;
+}
+#ul{
+   display: flex;
+   gap: 20px;
+}
+#outline{
+   background-color: #fff;
+}
+.carousel-item img{
+   /* z-index: -1; */
+   width: 100%;
+   height: 80vh;
+   /* contain: content; */
+   /* clip: ; */
+   background-size: contain;
+   /* margin-top: 110px; */
+}
+#mein-card{
+   padding: 25px 5px;
+}
+.cardes{
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 25px;
+   /* margin: 10px; */
+}
+.card {
+   width: 300px;
+   background: white; 
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   padding: 15px;
+   margin: 10px;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   color: #333; 
+ }
+ 
+ .card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .card img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   border-radius: 10px;
+   margin-bottom: 15px;
+ }
+ 
+ .card .titel {
+   font-size: 18px;
+   font-weight: bold;
+   color: #333;
+   margin-bottom: 10px;
+ }
+ 
+ .card .price {
+   font-size: 16px;
+   color: #e91e63; 
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+ 
+ .card .catagery {
+   font-size: 14px;
+   color: #777; 
+   margin-bottom: 10px;
+ }
+ 
+ .card .pm {
+   font-size: 14px;
+   color: #555; 
+   margin-bottom: 10px;
+ }
+ 
+ .card .star {
+   color: #ff9800; 
+   font-size: 18px;
+ }
+.star{
+   display: flex;
+ }
+ .card .add-to-fav {
+   background-color: #ff9800; 
+   color: #fff;
+   font-size: 15px;
+   cursor: pointer;
+   border: none;
+   border-radius: 5px;
+ }
+ 
+ .card .btns {
+   margin-top: 15px;
+ }
+ 
+ .card .btn1 {
+   width: 100%;
+   padding: 10px;
+   background-color: #333; 
+   color: white;
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   outline: none;
+ }
+ 
+ .card .btn:hover {
+   background-color: #555; 
+ }
+.footer{
+   align-items: center;
+   flex-wrap: wrap;
+}
+.footer1 h1{
+   font-size: 65px;
+    font-weight: bold;
+    color: #fff;
+}
+.footer1 p{
+   font-size: 18px;
+   font-weight: 400;
+   margin-top: 20px;
+   color: #fff;
+   /* justify-content: space-between; */
+}
+.footer1 button{
+   font-weight: 600;
+   padding: 10px 15px;
+}
+@media(max-width: 450px){
+   .carousel-item img{
+     height: 200px;
+   }
+}
+@media(max-width: 370px){
+   .footer1 h1{
+      font-size: 50px;
+   }
+   
+}

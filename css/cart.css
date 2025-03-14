@@ -1,0 +1,150 @@
+.container {
+   padding-top: 50px;
+   max-width: 800px;
+   margin: 20px auto;
+   padding: 20px;
+   background: white;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .container h1 {
+   font-size: 30px;
+   font-weight: bold;
+   color: #333;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+ 
+ #cart-items {
+   margin-bottom: 20px;
+ }
+ 
+ .cart-item {
+   display: flex;
+   align-items: center;
+   padding: 20px;
+   border-bottom: 1px solid #eee;
+   transition: background-color 0.3s ease;
+ }
+ 
+ .cart-item:hover {
+   background-color: #f9f9f9;
+ }
+ 
+ .cart-item img {
+   width: 150px;
+   height: 150px;
+   object-fit: cover;
+   border-radius: 10px;
+   margin-right: 20px;
+ }
+ 
+ .cart-item .details {
+   flex: 1;
+ }
+ 
+ .cart-item .name {
+   font-size: 20px;
+   font-weight: bold;
+   color: #333;
+   margin-bottom: 10px;
+ }
+ 
+ .cart-item .price {
+   font-size: 18px;
+   color: #e91e63;
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+ 
+ .cart-item .quantity {
+   font-size: 16px;
+   color: #777;
+   margin-bottom: 10px;
+ }
+ 
+ .cart-item .remove {
+   background-color: #e91e63;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: bold;
+   border: none;
+   outline: none;
+   color: #fff;
+   padding: 10px;
+   border-radius: 5px;
+ }
+ 
+ .cart-item .remove:hover {
+   background-color: #c2185b;
+ }
+ 
+ .cart-footer {
+   background: #333;
+   padding: 20px;
+   border-radius: 10px;
+   text-align: center;
+ }
+ 
+ .cart-footer h2 {
+   font-size: 24px;
+   font-weight: bold;
+   color: white;
+   margin-bottom: 20px;
+ }
+ 
+ .cart-footer #cart-total {
+   color: #e91e63;
+ }
+ 
+ .cart-footer button {
+   padding: 12px 24px;
+   font-size: 16px;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   margin: 5px;
+ }
+ 
+ .cart-footer #buy-now {
+   background-color: #e91e63;
+   color: white;
+ }
+ 
+ .cart-footer #buy-now:hover {
+   background-color: #c2185b;
+ }
+ 
+ .cart-footer #clear-cart {
+   background-color: #555;
+   color: white;
+ }
+ 
+ .cart-footer #clear-cart:hover {
+   background-color: #777;
+ }
+
+@media(max-width: 430px){
+   .cart-item img{
+      width: 50px;
+      height: 50px;
+   }
+   .container h1{
+      font-size: 28px;
+   }
+}
+@media(max-width: 400px){
+   .cart-item .name{
+      font-size: 12px;
+   }
+   .cart-item .remove{
+      font-size: 10px;
+      padding: 7px;
+   }
+   .cart-item .price{
+      font-size: 10px;
+   }
+}

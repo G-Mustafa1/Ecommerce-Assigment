@@ -1,0 +1,239 @@
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   /* font-family: "Atkinson Hyperlegible Next", serif; */
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+   /* display: flex; */
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: linear-gradient(90deg, #ffffff, #d4d4d4);
+}
+.loader{
+   background-color: #fff;
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.loader-div img{
+   width: 300px;
+}
+/* #contanir{
+   display: none;
+} */
+.mein-contanir{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.contanir{
+   position: relative;
+   width: 850px;
+   height: 550px;
+   background-color: #fff;
+   border-radius: 30px;
+   box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+   overflow: hidden;
+   margin: 20px;
+}
+.form{
+   position: absolute;
+   right: 0%;
+   width: 50%;
+   height: 100%;
+   background-color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   padding: 40px;
+   z-index: 1;
+   transition: .6s ease-in-out 1.2s, visibility 0s 1s ;
+}
+.form.singup-form{
+   visibility: hidden;
+}
+.contanir.active .form.singup-form{
+   visibility: visible;
+}
+/* #form#sign-up{ */
+
+/* } */
+form{
+   /* background-color: blue; */
+   width: 100%;
+}
+.toggle-box button{
+   font-weight: 600;
+}
+.contanir h1{
+   font-size: 36px;
+}
+.input-div{
+   position: relative;
+   margin: 30px 0px;
+   display: flex;
+   /* justify-content: space-around; */
+   align-items: center;
+}
+.input-div i{
+   position: absolute;
+   right: 10px;
+   /* left: 300px; */
+   /* padding-left: 50px; */
+   font-size: 18px;
+   color: #666;
+   /* top: 13px; */
+}
+.input-div input{
+   width: 100%;
+   padding: 13px 50px 13px 20px;
+   background-color: #eee;
+   border: none;
+   outline: none;
+   border-radius: 8px;
+}
+.forget-link{
+   margin: 15px 0px;
+}
+.forget-link a{
+   text-decoration: none;
+   color: #333;
+}
+.form button{
+   width: 100%;
+   height: 48px;
+   background-color: #212529;
+   border: none;
+   outline: none;
+   color: #fff;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: 600;
+}
+.contanir p{
+   font-size: 15px;
+   margin: 15px 0px;
+}
+.toggle-box{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   /* background-color: aqua; */
+}
+.toggle-box::before{
+   content: '';
+   position: absolute;
+   left: -250%;
+   border-radius: 250px;
+   width: 300%;
+   height: 100%;
+   background-color: #212529;
+   z-index: 2;
+   transition: 1.1s ease-in-out;
+}
+.toggle-panel{
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   /* background-color: brown; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   color: #fff;
+   z-index: 2;
+   transition: .6s ease-in-out;
+}
+.toggle-panel button{
+   width: 160px;
+   height: 46px;
+   background-color: transparent;
+   border: 2px solid #fff;
+   border-radius: 8px;
+   color: #fff;
+   /* box-shadow: none; */
+}
+.contanir.active .form{
+   right: 50%;
+}
+.toggle-panel.toggel-left{
+   left: 0;
+   transition-delay: 1.1s;
+}
+.contanir.active .toggle-panel.toggel-left{
+   left: -50%;
+   transition-delay: .6s;
+}
+.contanir.active .toggle-panel.toggel-right{
+   right: 0;
+   transition-delay: 1.1s;
+}
+.toggle-panel.toggel-right{
+   right: -50%;
+   transition-delay: .6s;
+}
+.contanir.active .toggle-box::before{
+   left: 50%;
+}
+@media(max-width: 650px){
+   .contanir{
+      height: calc(100vh - 40px);
+   }
+   .form{
+      bottom: 0;
+      width: 100%;
+      height: 70%;
+   }
+   .contanir.active .form{
+      right: 0;
+      bottom: 30%;
+   }
+   .contanir.active .toggle-box::before{
+      top: 70%;
+      left: 0;
+   }
+   .contanir.active .toggle-panel.toggel-left{
+      left: 0;
+      top: -30%;
+   }
+   .contanir.active .toggle-panel.toggel-right{
+      bottom: 0;
+   }
+   .toggle-box::before{
+      left: 0;
+      top: -270%;
+      width: 100%;
+      height: 300%;
+      border-radius: 20vw;
+   }
+   .toggle-panel{
+      width: 100%;
+      height: 30%;
+   }
+   .toggle-panel.toggel-left{
+      top: 0;
+   }
+   .toggle-panel.toggel-right{
+      right: 0;
+      bottom: -30%;
+   }
+   .loader-div img{
+      width: 200px;
+   }
+}
+@media(max-width: 400px){
+   .form{
+      padding: 20px;
+   }
+   .toggle-panel h1{
+      font-size: 30px;
+   }
+}
