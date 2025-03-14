@@ -16,10 +16,10 @@ async function addProduct(e) {
    e.preventDefault();
    btn.disabled = true;
    try {
-         let rateNum = (Math.random() * 4 + 1).toFixed(1);
-         let countNum = Math.floor(Math.random() * 10) + 1
-         console.log(countNum)
-   
+      let rateNum = (Math.random() * 4 + 1).toFixed(1);
+      let countNum = Math.floor(Math.random() * 10) + 1
+      console.log(countNum)
+
       const nam = document.getElementById('productName').value;
       const pri = document.getElementById('productPrice').value;
       const img = document.getElementById('productImage').value;
@@ -33,12 +33,22 @@ async function addProduct(e) {
          rate: Number(rateNum),
          count: countNum,
 
-       });
-       console.log(docRef)
-       getProduct()
-       console.log("Document written with ID: ", docRef.id);
+      });
+      Swal.fire({
+         title: "Product Add",
+         text: nam.slice(0, 20),
+         icon: "success"
+      })
+      console.log(docRef)
+      getProduct()
+      console.log("Document written with ID: ", docRef.id);
    } catch (error) {
       console.error("Error adding document: ", error);
+      Swal.fire({
+         title: "Error",
+         text: error.message,
+         icon: "error"
+      });
       btn.disabled = false;
    }
    addProductForm.reset();
@@ -63,7 +73,7 @@ async function getProduct() {
          card.innerHTML += `
          <div class="card" id="product-${doc.id}">
           <img src="${data.image}" alt="">
-          <div class="titel"><b>Titel:</b> ${data.item.slice(0,20)}</div>
+          <div class="titel"><b>Titel:</b> ${data.item.slice(0, 20)}</div>
           <div class="price"><b>Price:</b> $${Number(data.price).toFixed(2)}</div>
           <div class="pm" style="display: flex; justify-content: space-between;">
             <div class="rate"><b>Rate:</b> ${data.rate}</div>
@@ -89,18 +99,23 @@ async function getProduct() {
 getProduct()
 
 card.addEventListener('click', async (e) => {
-   if(e.target.classList.contains("btn-danger")){
+   if (e.target.classList.contains("btn-danger")) {
       const productId = e.target.getAttribute("data-id")
       console.log(productId)
+      Swal.fire({
+         title: "Success",
+         text: "Product deleted successfully!",
+         icon: "success"
+      })
       try {
-         await deleteDoc(doc(db, user, productId)); 
+         await deleteDoc(doc(db, user, productId));
          getProduct();
-      //   const product = document.getElementById(`product-${productId}`);
-      //   product.remove(); 
-         alert("Product deleted successfully!");
-     } catch (error) {
+         //   const product = document.getElementById(`product-${productId}`);
+         //   product.remove(); 
+         // alert("Product deleted successfully!");
+      } catch (error) {
          console.error("Error deleting product:", error);
-     }
+      }
    }
 
 })
@@ -117,15 +132,21 @@ onAuthStateChanged(auth, (user) => {
 });
 
 
+
 const logoutBtn = document.getElementById("logoutBtn")
 logoutBtn.addEventListener("click", () => {
    signOut(auth)
-     .then(() => {
-       console.log("User logged out");
-       window.location.href = "./login.html";
-     })
-     .catch((error) => {
-       console.error("Logout error:", error);
-     });
- });
- 
+   Swal.fire({
+      title: "Log Out",
+      text: "Logout successfully!",
+      icon: "success"
+   })
+      .then(() => {
+         console.log("User logged out");
+         window.location.href = "./login.html";
+      })
+      .catch((error) => {
+         console.error("Logout error:", error);
+      });
+});
+
