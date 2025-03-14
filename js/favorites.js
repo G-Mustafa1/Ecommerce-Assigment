@@ -38,16 +38,25 @@ loadCard()
 function cardRemove(e) {
    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
    const index = e.target.getAttribute("data-index");
+   const unFovorites = favorites.forEach((item) => {
+      Swal.fire({
+         title: item.name.slice(0,10),
+         text: "Product Un Fovorites successfully!",
+         icon: "success"
+      })
+   })
    console.log(favorites)
-
    favorites.splice(index, 1);
    localStorage.setItem("favorites", JSON.stringify(favorites));
-
    loadCard()
 }
 
 function clearCart() {
-   alert('hy')
+   Swal.fire({
+      title: "Favorites",
+      text: "Clear Fovorites List successfully!",
+      icon: "success"
+   })
    localStorage.removeItem('favorites');
    loadCard()
 }
