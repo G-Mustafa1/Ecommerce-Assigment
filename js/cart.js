@@ -46,7 +46,14 @@ loadCard()
 function cardRemove(e) {
    let cart = JSON.parse(localStorage.getItem("cart")) || [];
    const index = e.target.getAttribute("data-index");
-   console.log(cart)
+   let delCart = cart.forEach((item) => {
+      Swal.fire({
+         title: item.name.slice(0, 10),
+         text: "Product deleted successfully!",
+         icon: "success"
+      })
+      return
+   })
    const removedItem = cart.splice(index, 1);
    localStorage.setItem("cart", JSON.stringify(cart));
    updateTotalAfterRemove(removedItem.price, removedItem.quantity || 1);
@@ -62,7 +69,11 @@ function updateTotalAfterRemove(price, quantity) {
 }
 
 function clearCart() {
-   alert('hy')
+   Swal.fire({
+      title: 'Delete',
+      text: "Cart deleted successfully!",
+      icon: "success"
+   })
    localStorage.removeItem('cart');
    cartTotal.textContent = "0.00";
    loadCard()
@@ -72,13 +83,21 @@ function buyNow() {
    let cart = JSON.parse(localStorage.getItem("cart")) || [];
    if (cart.length === 0) {
       alert('chl nikl')
+
    }
-   let total = 0;
-   cart.forEach(item => {
-      total += Number(item.price) * (item.quantity || 1);
-   });
+   else {
+      let total = 0;
+      cart.forEach(item => {
+         total += Number(item.price) * (item.quantity || 1);
+      });
+      Swal.fire({
+         title: 'Purchase',
+         text: `Purchase successful! Total Amount: $${total.toFixed(2)}`,
+         icon: "success"
+      })
+      localStorage.removeItem('cart');
+      cartTotal.textContent = "0.00";
+      window.location.href = "../index.html";
+   }
 
-   alert(`Purchase successful! Total Amount: $${total.toFixed(2)}`);
-
-   clearCart();
 }
