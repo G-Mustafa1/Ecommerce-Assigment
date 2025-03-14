@@ -72,6 +72,11 @@ function addToCart(e) {
 
    if (existingItem) {
       existingItem.quantity += 1;
+      Swal.fire({
+         title: productName.slice(0,10),
+         text: "Product Add To successfully!",
+         icon: "success"
+      })
    } else {
       cart.push(item);
    }
@@ -101,10 +106,18 @@ function addToFav(e) {
    const existingItem = favorites.find((p) => p.id === productId);
     if (!existingItem) {
         favorites.push(item);
-        alert(`${productName} added to favorites!`);
+        Swal.fire({
+         title: productName.slice(0,10),
+         text: "Product Add To favorites!",
+         icon: "success"
+      })
     }
     else{
-      alert("Already in Favorites!");
+      Swal.fire({
+         title: productName.slice(0,10),
+         text: "Already in Favorites!",
+         icon: "error"
+      })
     }
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
